@@ -1,0 +1,16 @@
+{
+  "name": "Sudarshan Rijal — Portfolio",
+  "short_name": "SR Portfolio",
+  "description": "Computer Engineering student at Kathmandu University. Creator of AXON HMS.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090B",
+  "theme_color": "#09090B",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
