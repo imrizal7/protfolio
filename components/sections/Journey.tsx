@@ -5,14 +5,14 @@ import { useInView } from "react-intersection-observer";
 import { Check, Loader, Sparkles } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { journeySteps } from "@/data/site";
-import { staggerContainer, fadeInUp } from "@/animations/variants";
+import { staggerContainer } from "@/animations/variants";
 
 function TimelineStep({ step, index }: { step: (typeof journeySteps)[0]; index: number }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.4 });
 
   const isCompleted = step.status === "completed";
   const isCurrent = step.status === "current";
-  const isFuture = step.status === "future";
+  
 
   const dotColor = isCompleted
     ? "#3B82F6"

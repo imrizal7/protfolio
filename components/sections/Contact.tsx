@@ -7,7 +7,7 @@ import { Mail, Github, Linkedin, Instagram, Send, CheckCircle, AlertCircle } fro
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
-import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight } from "@/animations/variants";
+import { staggerContainer, fadeInLeft, fadeInRight } from "@/animations/variants";
 
 const socials = [
   {

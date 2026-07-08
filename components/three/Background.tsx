@@ -81,7 +81,7 @@ export function Background() {
     };
     window.addEventListener("resize", onResize, { passive: true });
 
-    let t = 0;
+    let t=0;
     const draw = () => {
       frameRef.current = requestAnimationFrame(draw);
       t += 0.005;

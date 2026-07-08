@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { Code2, Heart, Lightbulb, Target } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Monogram } from "@/components/ui/Monogram";
-import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight } from "@/animations/variants";
+import { staggerContainer, fadeInUp, fadeInLeft } from "@/animations/variants";
 
 const traits = [
   {
