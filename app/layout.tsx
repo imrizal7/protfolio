@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { ThemeProvider } from "next-themes";
 import "@/styles/globals.css";
 import { siteConfig } from "@/data/site";
 
@@ -66,10 +65,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#09090B" },
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-  ],
+  themeColor: "#09090B",
   width: "device-width",
   initialScale: 1,
 };
@@ -80,17 +76,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <body className="min-h-screen bg-[#09090B] antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange={false}
-          storageKey="sr-portfolio-theme"
-        >
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

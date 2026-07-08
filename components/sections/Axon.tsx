@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Github, ExternalLink, CheckCircle2, BarChart3 } from "lucide-react";
+import { Github, ExternalLink, CheckCircle2, BarChart3, Flame } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
-import { axonProject } from "@/data/site";
-import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight } from "@/animations/variants";
+import { axonProject, jetsonProject } from "@/data/site";
+import { staggerContainer, fadeInUp, fadeInRight } from "@/animations/variants";
 
 function MockupWindow() {
   return (
@@ -86,6 +86,7 @@ function MockupWindow() {
 
 export function Axon() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [jetsonRef, jetsonInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <section id="axon" className="section-padding relative" ref={ref}>
@@ -207,6 +208,66 @@ export function Axon() {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Second project — Jetson Fire/Smoke Detection */}
+        <motion.div
+          ref={jetsonRef}
+          variants={staggerContainer}
+          initial="hidden"
+          animate={jetsonInView ? "visible" : "hidden"}
+          className="mt-24 pt-16 border-t border-white/5"
+        >
+          <motion.div variants={fadeInUp} className="text-center max-w-2xl mx-auto mb-10">
+            <span className="section-label">Also Built</span>
+            <h3 className="mt-3 text-2xl md:text-3xl font-bold text-white flex items-center justify-center gap-2">
+              <Flame size={22} className="text-orange-400" />
+              {jetsonProject.name}
+            </h3>
+            <p className="mt-3 text-zinc-400 text-sm md:text-base leading-relaxed">
+              {jetsonProject.description}
+            </p>
+          </motion.div>
+
+          <motion.div variants={fadeInUp} className="max-w-3xl mx-auto glass rounded-2xl p-6 md:p-8 gradient-border">
+            <p className="text-zinc-500 text-sm leading-relaxed mb-6">
+              {jetsonProject.longDescription}
+            </p>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+              {jetsonProject.stats.map(({ label, value }) => (
+                <div key={label} className="glass rounded-xl px-3 py-2.5">
+                  <p className="text-[10px] text-zinc-600 uppercase tracking-widest font-mono mb-1">{label}</p>
+                  <p className="text-white font-semibold text-xs">{value}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {jetsonProject.techStack.map(({ name, color }) => (
+                <span
+                  key={name}
+                  className="text-xs px-3 py-1 rounded-full border font-mono"
+                  style={{ color, borderColor: color + "40", background: color + "10" }}
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
+
+            <Button
+              variant="glass"
+              size="md"
+              href={jetsonProject.repo}
+              external
+              magnetic
+            >
+              <Github size={15} />
+              View on GitHub
+            </Button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

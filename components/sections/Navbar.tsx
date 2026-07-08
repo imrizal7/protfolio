@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
 import { Monogram } from "@/components/ui/Monogram";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { navLinks } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -112,7 +111,6 @@ export function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-2 ml-auto md:ml-3">
-            <ThemeToggle />
             <motion.a
               href="/resume.pdf"
               download

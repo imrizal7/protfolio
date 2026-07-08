@@ -8,51 +8,6 @@ import { Button } from "@/components/ui/Button";
 import { githubStats } from "@/data/site";
 import { staggerContainer, fadeInUp } from "@/animations/variants";
 
-function ContributionGrid() {
-  const weeks = 26;
-  const days = 7;
-
-  const getIntensity = (week: number, day: number) => {
-    const seed = week * 7 + day;
-    const val = Math.sin(seed * 0.37) * 0.5 + 0.5;
-    if (val > 0.85) return 4;
-    if (val > 0.65) return 3;
-    if (val > 0.45) return 2;
-    if (val > 0.25) return 1;
-    return 0;
-  };
-
-  const colors = [
-    "rgba(255,255,255,0.05)",
-    "rgba(59,130,246,0.15)",
-    "rgba(59,130,246,0.3)",
-    "rgba(59,130,246,0.55)",
-    "rgba(59,130,246,0.85)",
-  ];
-
-  return (
-    <div className="overflow-x-auto no-scrollbar">
-      <div className="flex gap-1 min-w-max">
-        {Array.from({ length: weeks }).map((_, w) => (
-          <div key={w} className="flex flex-col gap-1">
-            {Array.from({ length: days }).map((_, d) => {
-              const intensity = getIntensity(w, d);
-              return (
-                <div
-                  key={d}
-                  className="w-3 h-3 rounded-[2px] transition-colors"
-                  style={{ background: colors[intensity] }}
-                  title={`${intensity} contributions`}
-                />
-              );
-            })}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function RepoCard({ repo }: { repo: (typeof githubStats.repos)[0] }) {
   return (
     <motion.a
@@ -121,24 +76,12 @@ export function GitHubSection() {
             ))}
           </motion.div>
 
-          {/* Contribution graph */}
-          <motion.div variants={fadeInUp} className="glass rounded-2xl p-6 gradient-border">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-medium text-zinc-300">Contributions</h3>
-              <span className="text-xs text-zinc-600 font-mono">Last 6 months</span>
-            </div>
-            <ContributionGrid />
-            <p className="mt-3 text-xs text-zinc-600 text-right font-mono">
-              * Placeholder visualization — connect GitHub API to show real data
-            </p>
-          </motion.div>
-
           {/* Repos */}
           <div>
             <motion.h3 variants={fadeInUp} className="text-sm font-medium text-zinc-400 mb-4 font-mono">
               Pinned repositories
             </motion.h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {githubStats.repos.map((repo) => (
                 <RepoCard key={repo.name} repo={repo} />
               ))}

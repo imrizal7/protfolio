@@ -10,16 +10,10 @@ interface SkillCardProps {
   name: string;
   icon: string;
   description: string;
-  variant: "comfortable" | "tools" | "learning" | "future";
+  variant: "tools" | "learning" | "future";
 }
 
 const variantStyles = {
-  comfortable: {
-    bg: "rgba(59,130,246,0.08)",
-    border: "rgba(59,130,246,0.2)",
-    iconBg: "rgba(59,130,246,0.12)",
-    label: "#3B82F6",
-  },
   tools: {
     bg: "rgba(124,58,237,0.08)",
     border: "rgba(124,58,237,0.2)",
@@ -73,7 +67,7 @@ interface SkillGroupProps {
   title: string;
   badge: string;
   items: { name: string; icon: string; description: string }[];
-  variant: "comfortable" | "tools" | "learning" | "future";
+  variant: "tools" | "learning" | "future";
   description: string;
 }
 
@@ -108,11 +102,11 @@ export function Skills() {
 
   const groups: SkillGroupProps[] = [
     {
-      title: "Comfortable With",
-      badge: "Core",
-      variant: "comfortable",
-      description: "Languages and concepts I work with regularly",
-      items: skills.comfortable,
+      title: "Still Learning",
+      badge: "In Progress",
+      variant: "learning",
+      description: "What I'm actively working through right now — nothing here is mastered yet",
+      items: skills.learning,
     },
     {
       title: "Tools",
@@ -120,13 +114,6 @@ export function Skills() {
       variant: "tools",
       description: "The environment I work in every day",
       items: skills.tools,
-    },
-    {
-      title: "Currently Learning",
-      badge: "Active",
-      variant: "learning",
-      description: "What I'm actively picking up right now",
-      items: skills.learning,
     },
     {
       title: "Future Interests",
@@ -142,15 +129,15 @@ export function Skills() {
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           label="Skills"
-          title="What I know, what I'm learning, where I'm going"
-          subtitle="An honest map of my abilities — no inflated claims, no buzzword bingo."
+          title="What I'm learning, where I'm going"
+          subtitle="An honest map of my abilities — no inflated claims, no buzzword bingo. I'm still learning everything here."
         />
 
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {groups.map((group) => (
             <motion.div key={group.title} variants={fadeInUp}>

@@ -51,28 +51,27 @@ export const education = [
   {
     level: "Secondary Education (SEE)",
     field: "General Education",
-    institution: "SOS Hermann Gmeiner School",
-    location: "Gandaki, Pokhara, Nepal",
+    institution: "SOS Hermann Gmeiner School, Gandaki",
+    location: "Pokhara, Nepal",
     status: "Completed",
     year: "– 2022",
     icon: "🏫",
   },
 ];
 
+// Everything here is still being learned — nothing is "mastered" yet.
+// Kept as a single honest bucket instead of implying finished skills.
 export const skills = {
-  comfortable: [
-    { name: "C++", icon: "⚡", description: "Primary language, used for coursework and projects" },
-    { name: "OOP", icon: "🔷", description: "Object-oriented design patterns and principles" },
+  learning: [
+    { name: "C++", icon: "⚡", description: "Learning the language fundamentals, syntax, and memory management" },
+    { name: "OOP", icon: "🔷", description: "Working on mastering object-oriented design patterns and principles" },
+    { name: "AXON", icon: "🏗️", description: "Building a real Hospital Management System — learning by doing" },
+    { name: "Python", icon: "🐍", description: "Exploring scripting, automation, and general-purpose programming" },
   ],
   tools: [
     { name: "Git", icon: "🌿", description: "Version control and branching workflows" },
     { name: "GitHub", icon: "🐙", description: "Collaboration, repos, and open source" },
     { name: "Qt Creator", icon: "🎛️", description: "Desktop GUI application development" },
-  ],
-  learning: [
-    { name: "Python", icon: "🐍", description: "Scripting, automation, and exploration" },
-    { name: "Software Design", icon: "🏗️", description: "Architecture and system thinking" },
-    { name: "Desktop Dev", icon: "🖥️", description: "Qt-based application development" },
   ],
   future: [
     { name: "Cybersecurity", icon: "🔐", description: "Secure systems and ethical hacking" },
@@ -159,6 +158,30 @@ export const axonProject = {
   ],
 };
 
+// Built during a 2-day hands-on workshop hosted by the Nepal Technology
+// Innovation Center (NTIC), Kathmandu University.
+export const jetsonProject = {
+  name: "Jetson Fire/Smoke Detection",
+  tagline: "Real-time fire & smoke detection on NVIDIA Jetson Nano",
+  description:
+    "A computer vision project built during a 2-day hands-on workshop hosted by the Nepal Technology Innovation Center (NTIC) at Kathmandu University. Runs real-time fire and smoke detection on an NVIDIA Jetson Nano from a live camera feed.",
+  longDescription:
+    "Built in a fast-paced 2-day workshop, this project introduced me to edge AI deployment, camera pipelines, and the constraints of running real-time inference on embedded hardware — a very different challenge from desktop development.",
+  repo: "https://github.com/imrizal7/Jetson-Fire-Smoke-Detection.git",
+  techStack: [
+    { name: "Python", color: "#3B82F6" },
+    { name: "NVIDIA Jetson Nano", color: "#7C3AED" },
+    { name: "Computer Vision", color: "#06B6D4" },
+    { name: "Edge AI", color: "#10B981" },
+  ],
+  stats: [
+    { label: "Hardware", value: "Jetson Nano" },
+    { label: "Duration", value: "2-Day Workshop" },
+    { label: "Organizer", value: "NTIC, KU" },
+    { label: "Domain", value: "Computer Vision" },
+  ],
+};
+
 export const githubStats = {
   username: "imrizal7",
   profileUrl: "https://github.com/imrizal7",
@@ -178,20 +201,12 @@ export const githubStats = {
       color: "#3B82F6",
     },
     {
-      name: "dotfiles",
-      description: "Personal development environment configuration",
-      lang: "Shell",
+      name: "Jetson-Fire-Smoke-Detection",
+      description: "Real-time fire/smoke detection on NVIDIA Jetson Nano — built at an NTIC workshop",
+      lang: "Python",
       stars: 0,
-      url: "https://github.com/imrizal7",
+      url: "https://github.com/imrizal7/Jetson-Fire-Smoke-Detection.git",
       color: "#7C3AED",
-    },
-    {
-      name: "learning-cpp",
-      description: "C++ exercises, patterns, and personal notes",
-      lang: "C++",
-      stars: 0,
-      url: "https://github.com/imrizal7",
-      color: "#06B6D4",
     },
   ],
 };
