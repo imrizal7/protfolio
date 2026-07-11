@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { Code2, Heart, Lightbulb, Target } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Monogram } from "@/components/ui/Monogram";
-import { staggerContainer, fadeInUp, fadeInLeft } from "@/animations/variants";
+import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight } from "@/animations/variants";
 
 const traits = [
   {
@@ -77,11 +77,14 @@ export function About() {
               <Monogram size="xl" />
             </div>
 
-            {/* Nepal badge */}
+            {/* Roots badge */}
             <div className="glass rounded-2xl px-6 py-4 text-center">
-              <p className="text-zinc-500 text-xs font-mono uppercase tracking-widest mb-1">Based in</p>
+              <p className="text-zinc-500 text-xs font-mono uppercase tracking-widest mb-1">Roots</p>
               <p className="text-white font-semibold flex items-center gap-2 justify-center">
-                <span>🇳🇵</span> Nepal — Dhulikhel
+                <span>🇳🇵</span> Pokhara → Kathmandu
+              </p>
+              <p className="text-zinc-600 text-[11px] mt-1.5">
+                Grew up in Pokhara (16 years) · Citizenship: Parbat
               </p>
             </div>
           </motion.div>
@@ -97,6 +100,11 @@ export function About() {
               I&apos;m Sudarshan — a second-semester Computer Engineering student at Kathmandu University with
               a genuine passion for building software that actually works. Not just runs, but works well
               and is written in a way someone else could read and maintain.
+            </motion.p>
+            <motion.p variants={fadeInUp} className="text-zinc-400 leading-relaxed">
+              I was born and raised in Pokhara, where I spent sixteen years before moving to Kathmandu for
+              university — though my citizenship traces back to Parbat. Pokhara is home in every way that
+              matters; Kathmandu is where I&apos;m building what comes next.
             </motion.p>
             <motion.p variants={fadeInUp} className="text-zinc-400 leading-relaxed">
               My programming journey started with C++ and Object-Oriented Programming — and the experience

@@ -106,10 +106,10 @@ export function Hero() {
           <Button
             variant="primary"
             size="lg"
-            href="#axon"
+            href="#projects"
             magnetic
             onClick={() => {
-              document.querySelector("#axon")?.scrollIntoView({ behavior: "smooth" });
+              document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
             }}
           >
             View Projects

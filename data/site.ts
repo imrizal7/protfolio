@@ -16,7 +16,7 @@ export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Journey", href: "#journey" },
-  { label: "AXON", href: "#axon" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -126,61 +126,69 @@ export const journeySteps = [
   },
 ];
 
-export const axonProject = {
-  name: "AXON",
-  tagline: "Hospital Management System",
-  description:
-    "AXON is a comprehensive desktop-based Hospital Management System built with C++ and Qt. Designed to streamline patient registration, appointment scheduling, and basic hospital workflows — all from a clean, native desktop interface.",
-  longDescription:
-    "Started as a university project, AXON grew into a full-featured application that taught me what software engineering really means: handling edge cases, thinking about users, writing maintainable code, and shipping something that actually works. Every feature in AXON was a lesson learned the hard way.",
-  repo: "https://github.com/AXON-HOSPITAL-MANAGEMENT-SYSTEM/AXON_HMS",
-  techStack: [
-    { name: "C++", color: "#3B82F6" },
-    { name: "Qt Framework", color: "#7C3AED" },
-    { name: "Qt Creator", color: "#06B6D4" },
-    { name: "OOP Design", color: "#10B981" },
-    { name: "Git", color: "#F59E0B" },
-    { name: "GitHub", color: "#EC4899" },
-  ],
-  features: [
-    "Patient Registration & Management",
-    "Appointment Scheduling System",
-    "Doctor & Department Modules",
-    "Qt Native Desktop Interface",
-    "Modular OOP Architecture",
-    "Data Persistence Layer",
-  ],
-  stats: [
-    { label: "Language", value: "C++" },
-    { label: "Framework", value: "Qt 6" },
-    { label: "Type", value: "Desktop App" },
-    { label: "Status", value: "Active Dev" },
-  ],
-};
-
-// Built during a 2-day hands-on workshop hosted by the Nepal Technology
-// Innovation Center (NTIC), Kathmandu University.
-export const jetsonProject = {
-  name: "Jetson Fire/Smoke Detection",
-  tagline: "Real-time fire & smoke detection on NVIDIA Jetson Nano",
-  description:
-    "A computer vision project built during a 2-day hands-on workshop hosted by the Nepal Technology Innovation Center (NTIC) at Kathmandu University. Runs real-time fire and smoke detection on an NVIDIA Jetson Nano from a live camera feed.",
-  longDescription:
-    "Built in a fast-paced 2-day workshop, this project introduced me to edge AI deployment, camera pipelines, and the constraints of running real-time inference on embedded hardware — a very different challenge from desktop development.",
-  repo: "https://github.com/imrizal7/Jetson-Fire-Smoke-Detection.git",
-  techStack: [
-    { name: "Python", color: "#3B82F6" },
-    { name: "NVIDIA Jetson Nano", color: "#7C3AED" },
-    { name: "Computer Vision", color: "#06B6D4" },
-    { name: "Edge AI", color: "#10B981" },
-  ],
-  stats: [
-    { label: "Hardware", value: "Jetson Nano" },
-    { label: "Duration", value: "2-Day Workshop" },
-    { label: "Organizer", value: "NTIC, KU" },
-    { label: "Domain", value: "Computer Vision" },
-  ],
-};
+// Unified projects list — rendered side by side in the Projects section.
+// Add new project objects here as they're built; the "more coming soon"
+// card in Projects.tsx will always sit after the last one.
+export const projects = [
+  {
+    id: "axon",
+    icon: "axon",
+    flagship: true,
+    name: "AXON",
+    tagline: "Hospital Management System",
+    description:
+      "AXON is a comprehensive desktop-based Hospital Management System built with C++ and Qt. Designed to streamline patient registration, appointment scheduling, and basic hospital workflows — all from a clean, native desktop interface.",
+    longDescription:
+      "Started as a university project, AXON grew into a full-featured application that taught me what software engineering really means: handling edge cases, thinking about users, writing maintainable code, and shipping something that actually works.",
+    repo: "https://github.com/AXON-HOSPITAL-MANAGEMENT-SYSTEM/AXON_HMS",
+    techStack: [
+      { name: "C++", color: "#3B82F6" },
+      { name: "Qt Framework", color: "#7C3AED" },
+      { name: "Qt Creator", color: "#06B6D4" },
+      { name: "OOP Design", color: "#10B981" },
+      { name: "Git", color: "#F59E0B" },
+      { name: "GitHub", color: "#EC4899" },
+    ],
+    features: [
+      "Patient Registration & Management",
+      "Appointment Scheduling System",
+      "Doctor & Department Modules",
+      "Qt Native Desktop Interface",
+      "Modular OOP Architecture",
+      "Data Persistence Layer",
+    ],
+    stats: [
+      { label: "Language", value: "C++" },
+      { label: "Framework", value: "Qt 6" },
+      { label: "Type", value: "Desktop App" },
+      { label: "Status", value: "Active Dev" },
+    ],
+  },
+  {
+    id: "jetson",
+    icon: "jetson",
+    flagship: false,
+    name: "Jetson Fire/Smoke Detection",
+    tagline: "Real-time fire & smoke detection on NVIDIA Jetson Nano",
+    description:
+      "A computer vision project built during a 2-day hands-on workshop hosted by the Nepal Technology Innovation Center (NTIC) at Kathmandu University. Runs real-time fire and smoke detection on an NVIDIA Jetson Nano from a live camera feed.",
+    longDescription:
+      "Built in a fast-paced 2-day workshop, this project introduced me to edge AI deployment, camera pipelines, and the constraints of running real-time inference on embedded hardware — a very different challenge from desktop development.",
+    repo: "https://github.com/imrizal7/Jetson-Fire-Smoke-Detection.git",
+    techStack: [
+      { name: "Python", color: "#3B82F6" },
+      { name: "NVIDIA Jetson Nano", color: "#7C3AED" },
+      { name: "Computer Vision", color: "#06B6D4" },
+      { name: "Edge AI", color: "#10B981" },
+    ],
+    stats: [
+      { label: "Hardware", value: "Jetson Nano" },
+      { label: "Duration", value: "2-Day Workshop" },
+      { label: "Organizer", value: "NTIC, KU" },
+      { label: "Domain", value: "Computer Vision" },
+    ],
+  },
+];
 
 export const githubStats = {
   username: "imrizal7",

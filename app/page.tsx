@@ -11,7 +11,7 @@ import { About } from "@/components/sections/About";
 import { Education } from "@/components/sections/Education";
 import { Skills } from "@/components/sections/Skills";
 import { Journey } from "@/components/sections/Journey";
-import { Axon } from "@/components/sections/Axon";
+import { Projects } from "@/components/sections/Projects";
 import { GitHubSection } from "@/components/sections/GitHub";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
@@ -50,7 +50,7 @@ export default function Home() {
                 <Education />
                 <Skills />
                 <Journey />
-                <Axon />
+                <Projects />
                 <GitHubSection />
                 <Contact />
               </main>
