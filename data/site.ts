@@ -41,7 +41,7 @@ export const education = [
   },
   {
     level: "+2 Science",
-    field: "Physics, Chemistry, Mathematics",
+    field: "Physics, Chemistry, Mathematics, Biology",
     institution: "United Academy",
     location: "Lalitpur, Nepal",
     status: "Completed",
@@ -194,8 +194,8 @@ export const githubStats = {
   username: "imrizal7",
   profileUrl: "https://github.com/imrizal7",
   stats: [
-    { label: "Repositories", value: "12+" },
-    { label: "Contributions", value: "200+" },
+    { label: "Repositories", value: "8+" },
+    { label: "Contributions", value: "115+" },
     { label: "Languages", value: "3" },
     { label: "Stars", value: "Growing" },
   ],
