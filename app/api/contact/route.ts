@@ -22,18 +22,42 @@ export async function POST(request: Request) {
       );
     }
 
-    // In production: integrate with Resend, Nodemailer, or another email service.
-    // Example with Resend (add RESEND_API_KEY to .env.local):
-    //
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: "Portfolio <noreply@sudarshanrijal.dev>",
-    //   to: "rijalsudarshan7@gmail.com",
-    //   subject: `Portfolio Contact: ${subject || "New Message"} from ${name}`,
-    //   text: `From: ${name} <${email}>\n\n${message}`,
-    // });
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
 
-    console.log("Contact form submission:", { name, email, subject, message });
+    if (!accessKey) {
+      console.error("WEB3FORMS_ACCESS_KEY is not set in environment variables");
+      return NextResponse.json(
+        { error: "Contact form is not configured yet" },
+        { status: 500 }
+      );
+    }
+
+    // Forward the submission to Web3Forms
+    const web3formsResponse = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: accessKey,
+        name,
+        email,
+        subject: subject || `Portfolio Contact from ${name}`,
+        message,
+        from_name: "Sudarshan Rijal Portfolio",
+      }),
+    });
+
+    const data = await web3formsResponse.json();
+
+    if (!web3formsResponse.ok || !data.success) {
+      console.error("Web3Forms submission failed:", data);
+      return NextResponse.json(
+        { error: "Failed to send message. Please try again." },
+        { status: 502 }
+      );
+    }
 
     return NextResponse.json(
       { success: true, message: "Message received" },
