@@ -7,7 +7,7 @@ import { Mail, Github, Linkedin, Instagram, Send, CheckCircle, AlertCircle } fro
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
-import { staggerContainer, fadeInLeft, fadeInRight } from "@/animations/variants";
+import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight } from "@/animations/variants";
 
 const socials = [
   {
@@ -52,19 +52,36 @@ export function Contact() {
     setStatus("sending");
 
     try {
-      const res = await fetch("/api/contact", {
+      // Submitting directly to Web3Forms from the browser — this is the
+      // officially supported way to use it, and avoids server-to-server
+      // requests getting flagged by their bot/spam protection.
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          name: form.name,
+          email: form.email,
+          subject: form.subject || `Portfolio Contact from ${form.name}`,
+          message: form.message,
+          from_name: "Sudarshan Rijal Portfolio",
+        }),
       });
 
-      if (res.ok) {
+      const data = await res.json();
+
+      if (res.ok && data.success) {
         setStatus("success");
         setForm({ name: "", email: "", subject: "", message: "" });
       } else {
+        console.error("Web3Forms submission failed:", data);
         setStatus("error");
       }
-    } catch {
+    } catch (error) {
+      console.error("Contact form error:", error);
       setStatus("error");
     }
 
